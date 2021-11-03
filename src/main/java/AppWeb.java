@@ -31,8 +31,8 @@ public class AppWeb  {
 
     // UFTM SaaS
     public static final String UFTM_SERVER = "https://demo.mobilecenter.io";
-    public static final String UFTM_SERVER_USERNAME = "jeanmatthieu.guerin@microfocus.com";
-    public static final String UFTM_SERVER_PASSWORD = "Welc0me11";
+    public static final String UFTM_SERVER_USERNAME = "xxxx@microfocus.com";
+    public static final String UFTM_SERVER_PASSWORD = "xxxxx";
     public static final String UFTM_UDID = "ce08171898ee74520c7e";
 
     // UFTM NimbusServer
