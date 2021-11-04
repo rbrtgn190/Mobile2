@@ -29,18 +29,37 @@ public class AppWeb  {
     private WebElement userBtn;
     private WebElement createNewAccountBtn;
 
-    // UFTM SaaS
-    public static final String UFTM_SERVER = "https://demo.mobilecenter.io";
-    public static final String UFTM_SERVER_USERNAME = "xxxx@microfocus.com";
-    public static final String UFTM_SERVER_PASSWORD = "xxxxx";
-    public static final String UFTM_UDID = "ce08171898ee74520c7e";
 
+/*
+    public static final String PLATFORM_NAME = "Android";
+    public static final String BROWSER_NAME = "chrome";
+*/
+
+    public static final String PLATFORM_NAME = "iOS";
+    public static final String BROWSER_NAME = "Safari";
+
+
+/*    // UFTM SaaS
+    public static final String UFTM_SERVER = "https://demo.mobilecenter.io";
+    public static final String UFTM_SERVER_USERNAME = "jeanmatthieu.guerin@microfocus.com";
+    public static final String UFTM_SERVER_PASSWORD = "xxxx";
+    public static final String UFTM_UDID = "ce08171898ee74520c7e";*/
+
+    // UFTM CAAS
+    public static final String UFTM_SERVER = "https://uftm-caas.saas.microfocus.com";
+    public static final String UFTM_SERVER_USERNAME = "jeanmatthieu.guerin@microfocus.com";
+    public static final String UFTM_SERVER_PASSWORD = "Welc0me";
+    // "client=oauth2-WAFwAbtcj99aKpHNQIVH@microfocus.com; secret=8beMYgc4OHhTrlW8KQ0Y; tenant=999999999; url=nimbusserver.aos.com:8084;"
+    public static final String UFTM_UDID = "";
+
+/*
     // UFTM NimbusServer
-/*    public static final String UFTM_SERVER = "http://nimbusserver.aos.com:8084";
+    public static final String UFTM_SERVER = "http://nimbusserver.aos.com:8084";
     public static final String UFTM_SERVER_USERNAME = "admin@default.com";
     public static final String UFTM_SERVER_PASSWORD = "Password1";
     // "client=oauth2-WAFwAbtcj99aKpHNQIVH@microfocus.com; secret=8beMYgc4OHhTrlW8KQ0Y; tenant=999999999; url=nimbusserver.aos.com:8084;"
-    public static final String UFTM_UDID = "";*/
+    public static final String UFTM_UDID = "";
+*/
 
     // Appium local
 /*    public static final String UFTM_SERVER = "http://127.0.0.1:4723";
@@ -65,12 +84,12 @@ public class AppWeb  {
         DesiredCapabilities cap = new DesiredCapabilities();
 
         //cap.setCapability("deviceName","Nexus");
-        cap.setCapability("platformName", "Android");
+        cap.setCapability("platformName", PLATFORM_NAME);
         cap.setCapability("udid", UFTM_UDID);
         //cap.setCapability("automationName", "UiAutomator1");
         //cap.setCapability("appPackage", "com.scores365");
         //cap.setCapability("appActivity", "com.scores365.ui.Splash");
-        cap.setCapability("browserName", "chrome");
+        cap.setCapability("browserName", BROWSER_NAME);
         //cap.setCapability("chromedriverUseSystemExecutable", "true");
 
         cap.setCapability("userName", UFTM_SERVER_USERNAME);
