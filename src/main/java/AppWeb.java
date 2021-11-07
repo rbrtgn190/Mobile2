@@ -72,33 +72,6 @@ public class AppWeb  {
         Thread.sleep(1*1000);
         driver.findElement(By.xpath("//*[@id='mobileUser']")).click();
 
-
-        // /html/body/login-modal/div/div/div[3]/a[2]
-        //        <div class="displayed">Username</div>
-
-        ///*WebElement*/ createNewAccountBtn = By.xpath("/html/body/login-modal/div/div/div[3]/a[2]");
- /*       By byCreateNewAccountBtn = By.xpath("/html/body/login-modal/div/div/div[3]/a[2]");
-        createNewAccountBtn = wait.until(ExpectedConditions.presenceOfElementLocated(byCreateNewAccountBtn));
-        Thread.sleep(5*1000);
-        Assert.assertTrue((ElementcreateNewAccountBtn.isDisplayed());*/
-        //Assert.assertTrue(driver.findElement(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")).isDisplayed());
-
- /*       // open users page - takes a while so wait until it is clickable
-        userBtn = wait.until(ExpectedConditions.elementToBeClickable(org.openqa.selenium.By.xpath("/html/body/header/nav/ul/li[3]/a/a")));
-        //userBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("svg#menuUser")));
-        //driver.findElement(By.cssSelector("svg#menuUser"));
-// or this
-        userBtn = driver.findElement(By.xpath("//*[@id='menuUser']"));
-        //wait.until(ExpectedConditions.elementToBeClickable(userBtn));
-        userBtn.click();
-*/
-
-/*
-        // createNewAccountBtn = driver.findElement(By.className("create-new-account.ng-scope"));
-        // above fails. Selenium sees classNames with a space in them as a "compound selecter" and fails
-        createNewAccountBtn = wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/login-modal/div/div/div[3]/a[2]")));
-        Thread.sleep(1*1000); // even with the above, need to sleep a bit*/
-
         Thread.sleep(5*1000);
     }
 }
