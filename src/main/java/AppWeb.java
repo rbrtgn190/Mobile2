@@ -1,23 +1,14 @@
-import static org.junit.Assert.*;
-
-import org.junit.*;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.remote.*;
-import org.openqa.selenium.support.pagefactory.ByChained;
-import org.openqa.selenium.*;
-import com.hpe.leanft.selenium.ByEach;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import org.junit.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.URL;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.Pattern;
-
 
 
 public class AppWeb  {
