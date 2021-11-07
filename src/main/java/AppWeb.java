@@ -29,11 +29,13 @@ public class AppWeb  {
 //    private WebElement createNewAccountBtn;
 
 
-    public static final String PLATFORM_NAME = "Android";
-    public static final String BROWSER_NAME = "chrome";
+/*    public static final String PLATFORM_NAME = "Android";
+    public static final String DEVICE_OS = "Android";
+    public static final String BROWSER_NAME = "chrome";*/
 
-/*    public static final String PLATFORM_NAME = "iOS";
-    public static final String BROWSER_NAME = "Safari";*/
+    public static final String PLATFORM_NAME = "iOS";
+    public static final String DEVICE_OS = "iOS";
+    public static final String BROWSER_NAME = "Safari";
 
 
 /*    // UFTM SaaS
@@ -43,18 +45,18 @@ public class AppWeb  {
     public static final String UFTM_UDID = "ce08171898ee74520c7e";*/
 
     // UFTM CAAS
-/*    public static final String UFTM_SERVER = "https://uftm-caas.saas.microfocus.com";
+    public static final String UFTM_SERVER = "https://uftm-caas.saas.microfocus.com";
     public static final String UFTM_SERVER_USERNAME = "jeanmatthieu.guerin@microfocus.com";
     public static final String UFTM_SERVER_PASSWORD = "Welc0me";
     // "client=oauth2-WAFwAbtcj99aKpHNQIVH@microfocus.com; secret=8beMYgc4OHhTrlW8KQ0Y; tenant=999999999; url=nimbusserver.aos.com:8084;"
-    public static final String UFTM_UDID = "";*/
+    public static final String UFTM_UDID = "b49a3786d3fda698f59867c218560ac4324af7fc";
 
     // UFTM NimbusServer
-    public static final String UFTM_SERVER = "http://nimbusserver.aos.com:8084";
+/*    public static final String UFTM_SERVER = "http://nimbusserver.aos.com:8084";
     public static final String UFTM_SERVER_USERNAME = "admin@default.com";
     public static final String UFTM_SERVER_PASSWORD = "Password1";
     // "client=oauth2-WAFwAbtcj99aKpHNQIVH@microfocus.com; secret=8beMYgc4OHhTrlW8KQ0Y; tenant=999999999; url=nimbusserver.aos.com:8084;"
-    public static final String UFTM_UDID = "";
+    public static final String UFTM_UDID = "";*/
 
     // Appium local
 /*    public static final String UFTM_SERVER = "http://127.0.0.1:4723";
@@ -63,8 +65,7 @@ public class AppWeb  {
     public static final String UFTM_UDID = "";*/
 
 
-    //Device OS needs to be set to android or iOS
-    public static final String DEVICE_OS = "Android";
+
 
 /*    //The Following is only required if Anonymous Access disabled
     public static final String UFTM_SERVER_CLIENT_ID = "oauth2-…";
@@ -97,51 +98,57 @@ public class AppWeb  {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 10);
 */
-        if(DEVICE_OS.equalsIgnoreCase("android"))
-        {
-            // Set Device
-/*            caps.setCapability("platformName", "Android");
-            //caps.setCapability("deviceName", "Pixel 2");
-            caps.setCapability("automationName", "android");
+        try {
+            if (DEVICE_OS.equalsIgnoreCase("android")) {
+                // Set Device
+    /*            caps.setCapability("platformName", "Android");
+                //caps.setCapability("deviceName", "Pixel 2");
+                caps.setCapability("automationName", "android");
 
-            // App Capabilities
-            caps.setCapability("appPackage", "com.Advantage.aShopping");
-            caps.setCapability("appActivity", "com.Advantage.aShopping.SplashActivity");*/
+                // App Capabilities
+                caps.setCapability("appPackage", "com.Advantage.aShopping");
+                caps.setCapability("appActivity", "com.Advantage.aShopping.SplashActivity");*/
 
-            // Create Web Driver
-            driver = new AndroidDriver(new URL(UFTM_SERVER + "/wd/hub"), cap);
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            wait = new WebDriverWait(driver, 10);
+                // Create Web Driver
+                driver = new AndroidDriver(new URL(UFTM_SERVER + "/wd/hub"), cap);
+                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                wait = new WebDriverWait(driver, 10);
 
-            //Create a session to the UFTM server
+                //Create a session to the UFTM server
 
-            System.out.println("UFTM session was successfully created [Android Device]");
-            //AWebDriver.quit();
+                System.out.println("UFTM session was successfully created [Android Device]");
+                //AWebDriver.quit();
 
-        }
-
-
-        if(DEVICE_OS.equalsIgnoreCase("iOS"))
-        {
-
-            // Set Device
-/*
-            caps.setCapability("platformName", "iOS");
-            caps.setCapability("deviceName", "iPhone 7");
-
-            // App Capabilities
-            caps.setCapability("bundleId", "com.hpe.iShopping");
-*/
-
-            // Create Web Driver
-            driver = new IOSDriver(new URL(UFTM_SERVER + "/wd/hub"), cap);
-            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-            wait = new WebDriverWait(driver, 10);
+            }
 
 
-            System.out.println("UFTM session was successfully created [iOS Device]");
-            //iOSWebDriver.quit();
+            if (DEVICE_OS.equalsIgnoreCase("iOS")) {
 
+                // Set Device
+    /*
+                caps.setCapability("platformName", "iOS");
+                caps.setCapability("deviceName", "iPhone 7");
+
+                // App Capabilities
+                caps.setCapability("bundleId", "com.hpe.iShopping");
+    */
+
+                // Create Web Driver
+                driver = new IOSDriver(new URL(UFTM_SERVER + "/wd/hub"), cap);
+                driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                wait = new WebDriverWait(driver, 10);
+
+
+                System.out.println("UFTM session was successfully created [iOS Device]");
+                //iOSWebDriver.quit();
+
+            }
+        } catch(Exception e) {
+            //retrieveAppiumLogs();
+            e.printStackTrace();
+            throw e;
+        } finally {
+            //retrieveAppiumLogs();
         }
     }
 
@@ -185,6 +192,11 @@ public class AppWeb  {
 
 
         // Retrieve Appium logs
+        retrieveAppiumLogs();
+    }
+
+
+    private static void retrieveAppiumLogs() {
         HashMap<String, String> encoding= new HashMap<String, String>();
         encoding.put("encoding", "UTF-8");
         String logFileContents = (String)  driver.executeScript("mc-wd: downloadLogs", encoding);
